@@ -1,0 +1,146 @@
+#top-bar
+  .container
+    .row
+      .col-lg-6.col-md-9
+        .contacts
+        - @companies.each do |company|
+          %div
+            %span.fa.fa-phone{:style => "font-weight: bold;"}
+              IND +91
+              = company.mobile
+            %span.fa.fa-google{:style => "padding-left: 60px; font-weight: bold;"}
+              = company.email
+            / %span.fa.fa-phone
+      .col-lg-6.col-md-3
+        .social.social-small.visible-lg
+          - @social_profiles.each do |social|
+            %a.fa{class: "fa-#{social.provider}", href: "#{social.url}", target: "_blank"}
+        %a.btn.btn-xs.btn-black-bordered.pull-right{:href => gettaxi_path } Get taxi online
+#nav-wrapper.nav-wrapper
+  %nav.navbar.navbar-static.navbar-affix{"data-spy" => "affix"}
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %a.logo{:href => root_path}
+          / %img{:alt => "TaxiPark", :src => "assets/images/logo-inner.png"}/
+          = image_tag 'logo-inner.png'
+      #navbar.navbar-collapse.collapse
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %ul.nav.navbar-nav
+          %li
+            / %a{:href => "index.html"} Home
+            = link_to "Home", root_path
+          %li
+            / %a{:href => "get_taxi.html"} Get Taxi
+            = link_to "Get Taxi", gettaxi_path
+          %li
+            / %a{:href => "services.html"} Services
+            = link_to "Services", services_path
+          %li.hasSub
+            / %a{:href => "#"} Our blog
+            = link_to "Our blog", blog_path
+            %ul.sub-menu
+              %li
+                / %a{:href => "blog.html"} Classic Blog
+                = link_to "Classic Blog", blog_path
+              %li
+                = link_to "Post", post_path
+          %li.current_page_item
+            / %a{:href => "contacts.html"} Contacts
+            = link_to "Contacts", contactus_path
+%header.page-header{:style => "background-image: url(#{asset_path '_inner-bg.jpg'})"}
+  .container
+    %ol.bread
+      %li
+        %a{:href => root_path}
+          %span Home
+      %li.divider
+        %span //
+      %li
+        %span Contacts
+    %h1 Contacts
+%section#page-contacts
+  .container
+    .row
+      .col-lg-6.col-md-6
+        %h3.aligncenter Addresh
+        %table.info-table
+          %tbody
+          - @companies.each do |company|
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-long-arrow-right
+              %td.info-table-content
+                = company.name
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-map-marker
+              %td.info-table-content
+                = company.add
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-phone
+              %td.info-table-content
+                IND +91
+                = company.mobile
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-fax
+              %td.info-table-content
+                IND +91
+                = company.alternate_mobile
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-mobile
+              %td.info-table-content
+                IND +91
+                = company.mobile
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-envelope
+              %td.info-table-content
+                = company.email
+
+
+            %tr.info-table-row
+              %th.info-table-icon
+                %i.fa.fa.fa-globe
+              %td.info-table-content
+                %a{:href => "http://localhost:3000/", :target => "_blank"} www.taxi.com
+      .col-lg-6.col-md-6.contact-form
+        -# %form.form.form-validate
+        %div
+          %h3.aligncenter Send Message
+          = form_with(url: '/home', model: @contact ) do |f|
+            %label.col-lg-12
+              Your name
+              %span.red *
+              = f.text_field :name, placeholder:"Enter a name"
+              %br
+            %label.col-lg-12
+              E-mail
+              %span.red *
+              = f.text_field :email, placeholder:"Enter a email"
+              %br
+            %label.col-lg-12
+              Message
+              %span.red *
+              = f.text_area :message, placeholder:"Enter a Message"
+              %br
+              .aligncenter
+                = f.submit 'SEND', class:"btn btn-yellow btn-lg text-center"
+
+          -# %input#type.ajaxField{:name => "type", :type => "hidden", :value => "1"}/
+/ Set google map coords and API key to yours
+/ #map{"data-lat" => "21.235847", "data-lng" => "72.872691", "data-zoom" => "11"}
+
+/ #map{"data-lat" => "21.235847", "data-lng" => "72.872691", "data-zoom" => "11"}
+%iframe{:frameborder => "0", :height => "600", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :zoom => "no", :src => "https://maps.google.com/maps?width=100%&height=600&hl=en&coord=21.235847, 72.872691&q=SofticesConsultancyPvtLtd%20Street%2C%20Dublin%2C%20Ireland&ie=UTF8&t=&z=14&iwloc=B&output=embed", :width => "100%"}

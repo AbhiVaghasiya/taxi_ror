@@ -1,0 +1,204 @@
+#top-bar
+  .container
+    .row
+      .col-lg-6.col-md-9
+        .contacts
+        - @companies.each do |company|
+          %div
+            %span.fa.fa-phone{:style => "font-weight: bold;"}
+              IND +91
+              = company.mobile
+            %span.fa.fa-google{:style => "padding-left: 60px; font-weight: bold;"}
+              = company.email
+            / %span.fa.fa-phone
+      .col-lg-6.col-md-3
+        .social.social-small.visible-lg
+          - @social_profiles.each do |social|
+            %a.fa{class: "fa-#{social.provider}", href: "#{social.url}", target: "_blank"}
+        %a.btn.btn-xs.btn-black-bordered.pull-right{:href => gettaxi_path } Get taxi online
+#nav-wrapper.nav-wrapper
+  %nav.navbar.navbar-static.navbar-affix{"data-spy" => "affix"}
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %a.logo{:href => root_path}
+          / %img{:alt => "TaxiPark", :src => "assets/images/logo-inner.png"}/
+          = image_tag 'logo-inner.png'
+      #navbar.navbar-collapse.collapse
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %ul.nav.navbar-nav
+          %li
+            / %a{:href => "index.html"} Home
+            = link_to "Home", root_path
+          %li
+            / %a{:href => "get_taxi.html"} Get Taxi
+            = link_to "Get Taxi", gettaxi_path
+          %li.current_page_item
+            / %a{:href => "services.html"} Services
+            = link_to "Services", services_path
+          %li.hasSub
+            / %a{:href => "#"} Our blog
+            = link_to "Our blog", blog_path
+            %ul.sub-menu
+              %li
+                / %a{:href => "blog.html"} Classic Blog
+                = link_to "Classic Blog", blog_path
+              %li
+                = link_to "Post", post_path
+          %li
+            / %a{:href => "contacts.html"} Contacts
+            = link_to "Contacts", contactus_path
+%header.page-header.margin-bottom-0{:style => "background-image: url(#{asset_path '_inner-bg.jpg'})"}
+  .container
+    %ol.bread
+      %li
+        %a{:href => root_path}
+          %span Home
+      %li.divider
+        %span //
+      %li
+        %span Services
+    %h1 Services
+%section#services
+  .container
+    %h4.yellow Welcome
+    %h2.h1 Our Services
+    %p.aligncenter.short-width Nulla egestas ante sit amet tincidunt bibendum. Duis id aliquet tellus, ut iaculis orci. Suspendisse efficitur ornare neque, rhoncus viverra dui semper in. Ut nec gravida enim. Maecenas viverra elit id nulla euismod tempus. Proin hendrerit nibh mauris, eget mollis ex elementum vel. Sed facilisis scelerisque viverra.
+    .row
+      .col-md-3.col-sm-6.col-ms-6.matchHeight
+        .image
+          / %img{:alt => "Service", :src => "assets/images/_services-1.png"}/
+          = image_tag '_services-1.png'
+        %h5 Rapid city transfer
+        %p We will bring you quickly and comfortably to anywhere in your city
+      .col-md-3.col-sm-6.col-ms-6.matchHeight
+        .image
+          / %img{:alt => "Service", :src => "assets/images/_services-2.png"}/
+          = image_tag '_services-2.png'
+        %h5 Booking a hotel
+        %p If you need a comfortable hotel, our operators will book it for you, and take a taxi to the address
+      .col-md-3.col-sm-6.col-ms-6.matchHeight
+        .image
+          / %img{:alt => "Service", :src => "assets/images/_services-3.png"}/
+          = image_tag '_services-3.png'
+        %h5 Airport transfer
+        %p We will bring you quickly and comfortably to anywhere in your city
+      .col-md-3.col-sm-6.col-ms-6.matchHeight
+        .image
+          / %img{:alt => "Service", :src => "assets/images/_services-4.png"}/
+          = image_tag '_services-4.png'
+        %h5 Baggage transport
+        %p If you need a comfortable hotel, our operators will book it for you, and take a taxi to the address
+/
+  <section id="tariffs" class="dark-bg" style="background-image: url(assets/images/_tariff-bg.jpg);">
+  <div class="container">
+  <h4 class="yellow">See Our</h4>
+  <h2 class="h1 white">Tariffs</h2>
+  <div class="row">
+  <div class="col-md-3 col-sm-6">
+  <div class="item matchHeight">
+  <div class="image"><img src="assets/images/_tariff-1.png" alt="Tariff"></div>
+  <h4>Standart</h4>
+  <p>Standard sedan for a drive around the city at your service</p>
+  <div class="price">$2<span>/km</span></div>
+  </div>
+  </div>
+  <div class="col-md-3 col-sm-6">
+  <div class="item matchHeight">
+  <div class="image"><img src="assets/images/_tariff-2.png" alt="Tariff"></div>
+  <h4>Business</h4>
+  <p>Standard sedan for a drive around the city at your service</p>
+  <div class="price">$2,7<span>/km</span></div>
+  </div>
+  </div>
+  <div class="col-md-3 col-sm-6">
+  <div class="item matchHeight vip">
+  <div class="image"><img src="assets/images/_tariff-3.png" alt="Tariff"></div>
+  <h4 class="red">Vip</h4>
+  <p>Standard sedan for a drive around the city at your service</p>
+  <div class="price">$5<span>/km</span></div>
+  </div>
+  </div>
+  <div class="col-md-3 col-sm-6">
+  <div class="item matchHeight">
+  <div class="image"><img src="assets/images/_tariff-4.png" alt="Tariff"></div>
+  <h4>Bus-minivan</h4>
+  <p>Standard sedan for a drive around the city at your service</p>
+  <div class="price">$4,5<span>/km</span></div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+%section#testimonials
+  %hr.lg/
+  .container
+    %h4.yellow Happy Client's
+    %h2.h1 Testimonials
+    #testimonials-slider.swiper-container.row
+      .swiper-wrapper
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.
+            .quote
+              .name Anastasia Stone
+              / %img{:alt => "Client", :src => "assets/images/_client-1.jpg"}/
+              = image_tag '_client-1.jpg'
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Suspendisse nec arcu sed nibh lacinia pretium. Phasellus eros ligula, mattis id rutrum non, eleifend vitae lacus.
+            .quote
+              .name Steven Rashford
+              / %img{:alt => "Client", :src => "assets/images/_client-4.jpg"}/
+              = image_tag '_client-4.jpg'
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Quisque sollicitudin feugiat risus, eu posuere ex euismod eu. Phasellus hendrerit, massa efficitur dapibus pulvinar, sapien eros sodales ante, euismod aliquet nulla metus a mauris.
+            .quote
+              .name Patrick James
+              / %img{:alt => "Client", :src => "assets/images/_client-5.jpg"}/
+              = image_tag '_client-5.jpg'
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.
+            .quote
+              .name Anastasia Stone
+              / %img{:alt => "Client", :src => "assets/images/_client-1.jpg"}/
+              = image_tag '_client-1.jpg'
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Suspendisse nec arcu sed nibh lacinia pretium. Phasellus eros ligula, mattis id rutrum non, eleifend vitae lacus.
+            .quote
+              .name Steven Rashford
+              / %img{:alt => "Client", :src => "assets/images/_client-4.jpg"}/
+              = image_tag '_client-4.jpg'
+        .col-md-4.col-sm-6.swiper-slide
+          .inner.matchHeight
+            %span.fa.fa-quote-left
+            .text
+              %p Quisque sollicitudin feugiat risus, eu posuere ex euismod eu. Phasellus hendrerit, massa efficitur dapibus pulvinar, sapien eros sodales ante, euismod aliquet nulla metus a mauris.
+            .quote
+              .name Patrick James
+              / %img{:alt => "Client", :src => "assets/images/_client-5.jpg"}/
+              = image_tag '_client-5.jpg'
+      .arrows
+        %a.arrow-left.fa.fa-caret-left{:href => "#"}
+        %a.arrow-right.fa.fa-caret-right{:href => "#"}

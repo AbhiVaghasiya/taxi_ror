@@ -1,0 +1,219 @@
+#top-bar
+  .container
+    .row
+      .col-lg-6.col-md-9
+        .contacts
+        - @companies.each do |company|
+          %div
+            %span.fa.fa-phone{:style => "font-weight: bold;"}
+              IND +91
+              = company.mobile
+            %span.fa.fa-google{:style => "padding-left: 60px; font-weight: bold;"}
+              = company.email
+            / %span.fa.fa-phone
+      .col-lg-6.col-md-3
+        .social.social-small.visible-lg
+          - @social_profiles.each do |social|
+            %a.fa{class: "fa-#{social.provider}", href: "#{social.url}", target: "_blank"}
+        %a.btn.btn-xs.btn-black-bordered.pull-right{:href => gettaxi_path } Get taxi online
+#nav-wrapper.nav-wrapper
+  %nav.navbar.navbar-static.navbar-affix{"data-spy" => "affix"}
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %a.logo{:href => root_path}
+          / %img{:alt => "TaxiPark", :src => "assets/images/logo-inner.png"}/
+          = image_tag 'logo-inner.png'
+      #navbar.navbar-collapse.collapse
+        %button.navbar-toggle.collapsed{:type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar.top-bar
+          %span.icon-bar.middle-bar
+          %span.icon-bar.bottom-bar
+        %ul.nav.navbar-nav
+          %li
+            / %a{:href => "index.html"} Home
+            = link_to "Home", root_path
+          %li.current_page_item
+            / %a{:href => "get_taxi.html"} Get Taxi
+            = link_to "Get Taxi", gettaxi_path
+          %li
+            / %a{:href => "services.html"} Services
+            = link_to "Services", services_path
+          %li.hasSub
+            / %a{:href => "#"} Our blog
+            = link_to "Our blog", blog_path
+            %ul.sub-menu
+              %li
+                / %a{:href => "blog.html"} Classic Blog
+                = link_to "Classic Blog", blog_path
+              %li
+                = link_to "Post", post_path
+          %li
+            / %a{:href => "contacts.html"} Contacts
+            = link_to "Contacts", contactus_path
+%header.page-header{:style => "background-image: url(#{asset_path '_inner-bg.jpg'})"}
+  .container
+    %ol.bread
+      %li
+        %a{:href => root_path }
+          %span Home
+      %li.divider
+        %span //
+      %li
+        %span Get Taxi
+    %h1 Get Taxi
+.drive-cars-section
+  .container
+    .title
+      %h4.yellow The weather started getting rough the tiny ship was tossed if not for the courage.
+      %h2.h1 Drive A Luxury Car Everyday
+    .row.clearfix
+      .driver-block.col-md-4.col-sm-6.col-xs-12
+        .inner-box
+          .icon-box
+            %i.fa.fa-search{"aria-hidden" => "true"}
+          %h3 Book Your Car
+          .text The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.
+      .driver-block.col-md-4.col-sm-6.col-xs-12
+        .inner-box
+          .icon-box
+            %i.fa.fa-usd{"aria-hidden" => "true"}
+          %h3 Pay the Fare
+          .text The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.
+      .driver-block.col-md-4.col-sm-6.col-xs-12
+        .inner-box
+          .icon-box
+            %i.fa.fa-car{"aria-hidden" => "true"}
+          %h3 Ride the Car
+          .text The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.
+.taxi-form-full
+  .container
+    %form.form-validate
+      .row.forms
+        %input.btn.btn-lg.btn-book.aligncenter{:value => "Book Now"}/
+        .col-md-6
+          .form-group
+            %label From Address...
+            %input#to.ajaxField{:name => "to", :placeholder => "Starting Place...", :type => "text", :value => ""}/
+        .col-md-6
+          .form-group
+            %label To
+            %input#to.ajaxField{:name => "to", :placeholder => "To...", :type => "text", :value => ""}/
+        .col-md-6
+          .form-group
+            %label Phone Number
+            %input#phone.ajaxField.required{:name => "phone", :placeholder => "Phone Number", :type => "text", :value => ""}/
+        .col-md-6
+          .form-group
+            %label Date&Time
+            %input#text.ajaxField{:name => "text", :placeholder => "Date and Time", :type => "text", :value => ""}/
+      %input.btn.btn-lg.btn-red.aligncenter{:type => "submit", :value => "Get Taxi"}/
+      %input#type.ajaxField{:name => "type", :type => "hidden", :value => "2"}/
+%section.best-services-section.style-two
+  / Floated Image
+  %figure.floated-image.wow.slideInRight.animated{"data-wow-delay" => "0ms", "data-wow-duration" => "1500ms", :style => "/* visibility: visible; *//* animation-duration: 1500ms; *//* animation-delay: 0ms; *//* animation-name: slideInRight; */"}
+    / %img{:alt => "Image", :src => "assets/images/featured-image-6.png"}/
+    = image_tag 'featured-image-6.png'
+  .container
+    / Heading Title
+    .title
+      %h2.yellow Our Awesome Services
+      .desc-text The weather started getting rough the tiny ship was tossed if not for the courage.
+    .outer-box
+      .row.clearfix
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-glass{"aria-hidden" => "true"}
+            %h3 Night Parties
+            .text The weather started getting rough the ship was tossed if courage.
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-shopping-cart{"aria-hidden" => "true"}
+            %h3 Shopping Malls
+            .text The weather started getting rough the ship was tossed if courage.
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-circle-o{"aria-hidden" => "true"}
+            %h3 Weddings
+            .text The weather started getting rough the ship was tossed if courage.r
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-plane{"aria-hidden" => "true"}
+            %h3 Airports
+            .text The weather started getting rough the ship was tossed if courage.
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-h-square{"aria-hidden" => "true"}
+            %h3 Hotels
+            .text The weather started getting rough the ship was tossed if courage.
+        / Service Block
+        .service-block-four.col-md-4.col-sm-6.col-xs-12
+          .inner-box
+            / Image layer
+            .image-layer{:style => "background-image: url(#{asset_path 'featured-image-5.jpg'})"}
+            .icon-box
+              %i.fa.fa-play-circle-o{"aria-hidden" => "true"}
+            %h3 Cinemas
+            .text The weather started getting rough the ship was tossed if courage.
+%section#download.parallax{:style => "background-image: url(#{asset_path '_download-bg.jpg'})"}
+  .container
+    %h4.yellow Get More Benefits
+    %h2.h1 Download The App
+    .row
+      .col-md-4.col-sm-12
+        .items.row
+          .col-md-2.visible-md.visible-lg
+            %span.num 01.
+          .col-md-10
+            %h5.yellow Fast booking
+            %p Nam ac ligula congue, interdum enim sit amet, fermentum nisi.
+          .col-md-2.visible-md.visible-lg
+            %span.num 02.
+          .col-md-10
+            %h5.yellow Easy to use
+            %p Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      .col-md-4.col-md-push-4.col-sm-12
+        .items.items-right.row
+          .col-md-10
+            %h5.yellow GPS searching
+            %p Ut elementum tincidunt erat vel ornare. Suspendisse ac felis non diam pretium.
+          .col-md-2.visible-md.visible-lg
+            %span.num 03.
+          .col-md-10
+            %h5.yellow Bonuses for ride
+            %p Phasellus l et porta tortor dignissim at. Pellentesque gravida tortor at euismod mollis.
+          .col-md-2.visible-md.visible-lg
+            %span.num 04.
+      .col-md-4.col-md-pull-4.col-sm-12
+        .mob
+          %a{:href => "#"}
+            / %img{:alt => "App", :src => "assets/images/_app-google.png"}/
+            = image_tag '_app-google.png'
+          %a{:href => "#"}
+            / %img{:alt => "App", :src => "assets/images/_app-apple.png"}/
+            = image_tag '_app-apple.png'
